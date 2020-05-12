@@ -135,7 +135,8 @@ class ViewController: UIViewController {
                 // create a new button and give it a big font size
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-
+                letterButton.layer.borderWidth = 1
+                letterButton.layer.borderColor = UIColor.lightGray.cgColor
                 // give the button some temporary text so we can see it on-screen
                 letterButton.setTitle("WWW", for: .normal)
                 //add action to the all buttons
@@ -185,6 +186,11 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        }else{
+            let ac = UIAlertController(title: "No!", message: "You are wrong!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Clear the screen and t ry again!", style: .default, handler: nil))
+            present(ac, animated: true)
+            score -= 1
         }
     }
     
